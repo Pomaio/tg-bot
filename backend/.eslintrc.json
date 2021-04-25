@@ -1,0 +1,30 @@
+{
+    "env": {
+        "es2020": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 11,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "@typescript-eslint/no-explicit-any": 0,
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "max-len": [
+            1,
+            {
+                "code": 120,
+                "tabWidth": 2,
+                "ignoreUrls": true,
+                "ignoreComments": true
+            }
+        ]
+    }
+}
