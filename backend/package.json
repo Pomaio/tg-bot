@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "ts-node-dev ./src/index.ts",
-    "build": "tsc ./src/index.ts"
+    "build": "tsc -p tsconfig.json"
   },
   "devDependencies": {
     "@types/express": "^4.17.8",
