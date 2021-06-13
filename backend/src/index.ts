@@ -14,11 +14,11 @@ app.use(json());
 app.use('/users', usersRouter);
 
 app.get('/', (request, response) => {
-    response.end('Server works');
+  response.end('Server works');
 });
 
 app.listen(3000);
 
 mongoose.connect(process.env.DB_URI as string, {
-    useNewUrlParser: true, useFindAndModify: false
+  useNewUrlParser: true, useFindAndModify: false
 });
