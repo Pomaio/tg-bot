@@ -19,7 +19,7 @@ app.get('/', (request, response) => {
   response.end('Server works');
 });
 
-app.listen(3000);
+app.listen(process.env.PORT ?? 3000);
 
 mongoose.connect(process.env.DB_URI as string, {
   useNewUrlParser: true, useFindAndModify: false

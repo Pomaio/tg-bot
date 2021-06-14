@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "ts-node-dev ./src/index.ts",
-    "start": "ts-node ./src/index.ts",
+    "start": "ts-node ./src/index.ts -p $PORT",
     "build": "docker build -f .\\Dockerfile . -t bot-backend"
   },
   "devDependencies": {

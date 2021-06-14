@@ -7,6 +7,7 @@ COPY package*.json ./
 RUN npm install --frozen-lockfile
 
 ENV NODE_ENV production
+ENV NODE_ENV $NODE_ENV
 
 COPY . .
 
