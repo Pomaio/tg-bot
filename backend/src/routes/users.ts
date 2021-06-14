@@ -1,12 +1,12 @@
 import express from 'express';
 import { hash } from '../utils';
-import { User } from '../models';
+import { UserDBModel } from '../models';
 
 export const usersRouter = express.Router();
 
 usersRouter.get('/', async (request, response) => {
   try {
-    const users = await User.find({ ...request.query });
+    const users = await UserDBModel.find({ ...request.query });
     response.json(users);
   } catch (error) {
     response.json({ message: error });
@@ -18,10 +18,9 @@ usersRouter.post('/', async (request, response) => {
   try {
     const userData = request.body;
     const id = hash(userData);
-    const user = new User({
+    const user = new UserDBModel({
       ...userData,
       id,
-      "_id": id
     });
 
     const savedUser = await user.save();
@@ -35,7 +34,7 @@ usersRouter.post('/', async (request, response) => {
 
 usersRouter.get('/:id', async (request, response) => {
   try {
-    const user = await User.findOne({ id: request.params.id });
+    const user = await UserDBModel.findOne({ id: request.params.id });
     response.json(user);
   } catch (error) {
     response.json({ message: error });
@@ -45,7 +44,7 @@ usersRouter.get('/:id', async (request, response) => {
 
 usersRouter.delete('/:id', async (request, response) => {
   try {
-    await User.remove({ id: request.params.id });
+    await UserDBModel.remove({ id: request.params.id });
     response.status(200);
   } catch (error) {
     response.json({ message: error });

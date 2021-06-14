@@ -1,14 +1,14 @@
 import { model, Schema, Document } from 'mongoose';
 
-export interface User {
-  id: string,
+export interface Recruiter {
   name: string,
+  id: string,
   registration: Date
 }
 
-export const UserSchema = new Schema<User & Document>({
-  id: { type: String, required: true },
+export const RecruiterSchema = new Schema<Recruiter & Document>({
   name: { type: String, required: true },
+  id: { type: String, required: true },
   registration: { type: Date, default: Date.now },
 }, {
   "toJSON": {
@@ -19,4 +19,4 @@ export const UserSchema = new Schema<User & Document>({
   }
 });
 
-export const UserDBModel = model<User & Document>('Users', UserSchema);
+export const RecruiterDBModel = model<Recruiter & Document>('Recruiter', RecruiterSchema);
