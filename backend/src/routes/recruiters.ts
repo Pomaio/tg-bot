@@ -4,7 +4,15 @@ import { RecruiterDBModel } from '../models';
 
 export const recruitersRouter = express.Router();
 
-// now avaliable only create metod
+recruitersRouter.get('/', async (request, response) => {
+  try {
+    const users = await RecruiterDBModel.find({ ...request.query });
+    response.json(users);
+  } catch (error) {
+    response.json({ message: error });
+  }
+});
+
 recruitersRouter.post('/', async (request, response) => {
   try {
     const data = request.body;

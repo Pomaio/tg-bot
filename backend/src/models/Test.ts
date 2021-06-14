@@ -6,7 +6,7 @@ export interface Question {
   body: string,
   variables?: Array<string>,
   avaliableAnswers?: Array<string>,
-  validate?: Array<any>
+  validators?: Array<any>
 }
 
 const QuestionSchema = new Schema<Question & Document>({
@@ -15,7 +15,7 @@ const QuestionSchema = new Schema<Question & Document>({
   body: { type: String, required: true },
   variables: [String],
   avaliableAnswers: [String],
-  validate: [],
+  validators: [],
 });
 
 export interface Topic {
@@ -47,4 +47,4 @@ export const TestSchema = new Schema<Test & Document>({
   }
 });
 
-export const TestDBModel = model<Test & Document>('Users', TestSchema);
+export const TestDBModel = model<Test & Document>('Tests', TestSchema);
